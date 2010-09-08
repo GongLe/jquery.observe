@@ -9,10 +9,9 @@
 
 (function($){
   $.fn.observe = function(callback, period){
-    return this.each(function(){
-      var element = $(this), value = $(this).val();
-      element.focused = false;
-      
+    return this.each(function(index, element){
+      var element = $(element), value = $(element).val();
+      element[0].focused = false;
       function checkForChange(){
         if ( element.val() != value ) callback.call( element, value );
         value = element.val();
